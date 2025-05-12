@@ -1,145 +1,166 @@
-body{
-    position: relative;
-    margin: 0;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: #111010; */
-    overflow: hidden;
-    background-image: url('https://images.unsplash.com/photo-1545164027-0d5617cef5fc?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-    
-
-.container{
-    font-size: 10px;
-    width: 40em;
-    height:40em;
-    position: relative;    
+body {
+  position: relative;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-image: url("https://images.unsplash.com/photo-1545164027-0d5617cef5fc?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
+.container {
+  font-size: 10px;
+  width: 40em;
+  height: 40em;
+  position: relative;
+}
 
-.sun{
-    position: absolute;
-    top: 15em;
-    left: 15em;
-    width: 10em;
-    height: 10em;
-    background-color: #f9d71c;    
-    border-radius: 50%;
-    /* background-image: url('https://media.istockphoto.com/id/1083390096/photo/sun-solar-system-isolated.jpg?s=612x612&w=is&k=20&c=Dp6hLnUuE47lm8bs8FmKY-p1pzxXIbsR7efUC4H6hWI='); */
-    /* box-shadow: 0 0 20px rgba(249, 215, 28, 0.5); */
-    }
+.sun {
+  position: absolute;
+  top: 15em;
+  left: 15em;
+  width: 10em;
+  height: 10em;
+  border-radius: 50%; /* Робить елемент круглим */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .sun img {
+  position: absolute;
+  top: -2em;
+  left: -2em;
+  width: 14em;
+  height: 14em;
+} */
 
+.earth,
+.moon {
+  position: absolute;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  border-width: 0.1em 0.1em 0 0;
+  border-radius: 50%;
+}
 
-.earth, .moon{
-    position: absolute;
-    border-style: solid;
-    border-color: white transparent transparent transparent;
-    border-width: 0.1em 0.1em 0 0;
-    border-radius: 50%;
-    }
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.earth {
+  top: 5em;
+  left: 5em;
+  width: 30em;
+  height: 30em;
+  animation: orbit 36.5s linear infinite;
+}
+.moon {
+  top: 0;
+  left: 22em;
+  /* The moon orbits around the earth */
+  width: 8em;
+  height: 8em;
+  animation: orbit 2.7s linear infinite;
+}
 
-    @keyframes orbit{
-        to {
-            transform: rotate(360deg);
-        } 
-    }
-    .earth{
-        top: 5em;
-        left: 5em;
-        width: 30em;
-        height: 30em;        
-        animation: orbit 36.5s linear infinite;
-    }
-    .moon{
-        top: 0;
-        left: 22em;
-        /* The moon orbits around the earth */
-        width: 8em;
-        height: 8em;
-        animation: orbit 2.7s linear infinite;
-    }    
+.earth::before,
+.moon::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+.earth::before {
+  top: 2.8em;
+  right: 2.8em;
+  width: 3em;
+  height: 3em;
+  background-color: #2b7a3e;
+}
 
-    .earth::before, .moon::before{
-        content: '';
-        position: absolute;
-        border-radius: 50%;
-    }
-    .earth::before{
-        top: 2.8em;
-        right: 2.8em;
-        width: 3em;
-        height: 3em;
-        background-color: #2b7a3e;
-    }
-
-    .moon::before{       
-        top: 0.8em;
-        right: 0.8em;
-        width: 1.2em;
-        height: 1.2em;
-        background-color: #eff8c6;
-    }
-    /* .sun {
+.moon::before {
+  top: 0.8em;
+  right: 0.8em;
+  width: 1.2em;
+  height: 1.2em;
+  background-color: #eff8c6;
+}
+/* .sun {
         background: radial-gradient(circle, rgba(153, 147, 117, 0.5) 20%, #d5dd37 80%);
       } */
-    
-      
+
 .comet-whiht {
-    position: absolute;
-    top: 10%;
-    left: -2em;
-    width: 2em;
-    height: 2em;
-    background-color: white;
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-    animation: fly-straight-whiht 4s linear infinite;
+  position: absolute;
+  top: 10%;
+  left: -2em;
+  width: 2em;
+  height: 2em;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  animation: fly-straight-whiht 4s linear infinite;
 }
 
 @keyframes fly-straight-whiht {
-    0% { transform: translateX(-2em); opacity: 1; }
-    100% { transform: translateX(calc(100vw + 4em)); opacity: 0; } /* Становится прозрачной в конце */
+  0% {
+    transform: translateX(-2em);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(100vw + 4em));
+    opacity: 0;
+  } /* Становится прозрачной в конце */
 }
 
-.comet-red{
-    position: absolute;
-    top: 30%;
-    left: calc(100vw + 2em);
-    width: 2em;
-    height: 2em;
-    background-color:red;
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(90, 153, 95, 0.8);
-    animation: fly-straight-red 10s linear infinite;
+.comet-red {
+  position: absolute;
+  top: 30%;
+  left: calc(100vw + 2em);
+  width: 2em;
+  height: 2em;
+  background-color: red;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(90, 153, 95, 0.8);
+  animation: fly-straight-red 10s linear infinite;
 }
 
 @keyframes fly-straight-red {
-    0% { transform: translateX(0); opacity: 1; } /* Начало с правого края (относительно initial left) */
-    100% { transform: translateX(calc(-100vw - 4em)); opacity: 0; } /* Конец за левым краем */
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  } /* Начало с правого края (относительно initial left) */
+  100% {
+    transform: translateX(calc(-100vw - 4em));
+    opacity: 0;
+  } /* Конец за левым краем */
 }
 
-
-.comet-yellow{
-    position: absolute;
-    top: 60%;
-    left: -2em;
-    width: 2em;
-    height: 2em;
-    background-color: rgb(218, 221, 35);
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-    animation: fly-straight-right-yellow 6s linear infinite;
+.comet-yellow {
+  position: absolute;
+  top: 60%;
+  left: -2em;
+  width: 2em;
+  height: 2em;
+  background-color: rgb(218, 221, 35);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  animation: fly-straight-right-yellow 6s linear infinite;
 }
 
 @keyframes fly-straight-right-yellow {
-    0% { transform: translateX(0); opacity: 1; } /* Начало с левого края */
-    100% { transform: translateX(calc(100vw + 4em)); opacity: 0; } /* Конец за правым краем */
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  } /* Начало с левого края */
+  100% {
+    transform: translateX(calc(100vw + 4em));
+    opacity: 0;
+  } /* Конец за правым краем */
 }
-    

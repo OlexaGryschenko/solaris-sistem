@@ -41,8 +41,7 @@ body {
   height: 14em;
 } */
 
-.earth,
-.moon {
+.earth, .moon {
   position: absolute;
   border-style: solid;
   border-color: white transparent transparent transparent;
@@ -82,7 +81,7 @@ body {
   right: 2.8em;
   width: 3em;
   height: 3em;
-  background-color: #2b7a3e;
+  background-color: #3b66a8;
 }
 
 .moon::before {
@@ -90,13 +89,13 @@ body {
   right: 0.8em;
   width: 1.2em;
   height: 1.2em;
-  background-color: #eff8c6;
+  background-color: #dac73d;
 }
 /* .sun {
         background: radial-gradient(circle, rgba(153, 147, 117, 0.5) 20%, #d5dd37 80%);
       } */
 
-.comet-whiht {
+/* .comet-whiht {
   position: absolute;
   top: 10%;
   left: -2em;
@@ -106,9 +105,9 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
   animation: fly-straight-whiht 4s linear infinite;
-}
+} */
 
-@keyframes fly-straight-whiht {
+/* @keyframes fly-straight-whiht {
   0% {
     transform: translateX(-2em);
     opacity: 1;
@@ -117,7 +116,7 @@ body {
     transform: translateX(calc(100vw + 4em));
     opacity: 0;
   } /* Становится прозрачной в конце */
-}
+/*} */
 
 .comet-red {
   position: absolute;
@@ -164,3 +163,56 @@ body {
     opacity: 0;
   } /* Конец за правым краем */
 }
+.comet-yellow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -1em; /* Начало хвоста от центра кометы */
+    transform: translateY(-50%) translateX(-100%); /* Смещаем назад и центрируем вертикально */
+    width: 30em; /* Длина хвоста */
+    height: 0.3em; /* Толщина хвоста */
+    background: linear-gradient(to left, rgba(181, 211, 100, 0.8), transparent); /* Градиент для хвоста */
+    border-radius: 0.15em;
+    opacity: 0.8; /* Начальная прозрачность хвоста */    
+}
+
+/*#region Белая комета */
+
+.comet-whiht {
+    position: absolute;
+    top: 10%;
+    left: -2em;
+    width: 1.5em; /* Немного уменьшим размер */
+    height: 1.5em;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white, 0 0 20px rgba(255, 255, 255, 0.8); /* Усиленное свечение */
+    animation: fly-straight-whiht 4s linear infinite;
+    /* overflow: hidden; Чтобы псевдоэлемент хвоста не выходил за границы */
+}
+@keyframes fly-straight-whiht {
+    0% {
+        transform: translateX(-2em);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(100vw + 4em));
+        opacity: 0;
+    }
+}
+.comet-whiht::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -1em; /* Начало хвоста от центра кометы */
+    transform: translateY(-50%) translateX(-100%); /* Смещаем назад и центрируем вертикально */
+    width: 30em; /* Длина хвоста */
+    height: 0.3em; /* Толщина хвоста */
+    background: linear-gradient(to left, rgba(241, 19, 19, 0.8), transparent); /* Градиент для хвоста */
+    border-radius: 0.15em;
+    opacity: 0.8; /* Начальная прозрачность хвоста */    
+}
+/*#endregion */
+
+
+
